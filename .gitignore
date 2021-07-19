@@ -1,8 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/face/unknown
-/face/memory
+/face/unknown/*
+/face/memory/*
 # testing
 /coverage
 
