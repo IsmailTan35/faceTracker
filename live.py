@@ -78,6 +78,8 @@ def createFolder():
     if not os.path.exists("./face"):
         os.mkdir(os.path.join("./", "face"), 0o666)
         os.mkdir(os.path.join("./face", "unknown"), 0o666)
+        os.mkdir(os.path.join("./face", "memory"), 0o666)
+
 
 def drawPicture(image,counter,total):
     cv2.rectangle(image,(35,10),(250,125),(100,184,101),-1)
