@@ -10,11 +10,11 @@ import math
 import face_recognition
 # os.rmdir("./Deneme")
 
-def createPictureFace(path,image,location):
+def createPictureFace(path,image):
     try:
         cv2.imwrite(os.path.join(path , 'unknown'+str(datetime.now()).replace(" ","").replace(".","-").replace(":","-")+'.jpg'),image)      
     except:
-        print("denen")
+        print("create picture error")
 
 def createFacePointer(image,location,color):
     cv2.rectangle(image,(location[1],location[0]),(location[3],location[2]),color,2)
@@ -54,10 +54,10 @@ def pictureEncode(image,path,unknown_locations,color):
                 img_cropped = img.crop((location[3], location[0], location[1], location[2]))
                 img_np=np.array(img_cropped)
                 img_final=cv2.cvtColor(img_np,cv2.IMREAD_COLOR)
-                createPictureFace(path,img_final,location)
+                createPictureFace(path,img_final)
 
         # drawPicture(image[location[1]:location[1]+location[3],location[0]:location[0]+location[2]])
-        # createPictureFace("./face/memory",image,location)
+        # createPictureFace("./face/memory",image)
     except :
         print("TypeError")
     return "quit"
@@ -124,7 +124,7 @@ def Main():
         counter=0
         drawPicture(img_final,counter,total)
         if (cv2.waitKey(1)==ord('5')):
-                decodewhileFace(program,img_final,color,path,total,counter)  
+            decodewhileFace(program,img_final,color,path,total,counter)  
         else:
             decodeFace(program,img_final,color,path,total,counter)
         drawPicture(img_final,counter,total)
